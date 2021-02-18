@@ -1,3 +1,6 @@
+import { Navbar, Button } from "@blueprintjs/core";
+import "@blueprintjs/core/lib/css/blueprint.css";
+
 import { useState, useContext } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -32,29 +35,27 @@ function Loader() {
         { name: "banco 2", id: 2 },
         { name: "banco 3", id: 3 },
       ],
-      loaded: true
+      loaded: true,
     });
   };
 
-  return <button onClick={handleLoad}>Load!</button>;
+  return <Button icon="refresh" onClick={handleLoad}>Load!</Button>;
 }
 
 function Layout() {
   return (
     <section>
-      <div className="App">
-        <header>Open Banking Brasil</header>
-        <Router>
-          <Switch>
-            <Route path="/institutions/:id">
-              <Institution></Institution>
-            </Route>
-            <Route path="/">
-              <Institutions></Institutions>
-            </Route>
-          </Switch>
-        </Router>
-      </div>
+      <Navbar>Open Banking Brasil</Navbar>
+      <Router>
+        <Switch>
+          <Route path="/institutions/:id">
+            <Institution></Institution>
+          </Route>
+          <Route path="/">
+            <Institutions></Institutions>
+          </Route>
+        </Switch>
+      </Router>
     </section>
   );
 }
