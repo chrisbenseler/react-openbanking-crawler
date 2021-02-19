@@ -41,5 +41,6 @@
   },
   "devDependencies": {
     "react-app-env": "^1.2.3"
-  }
+  },
+  "homepage": "./"
 }
