@@ -1,8 +1,10 @@
-import { Navbar, Button } from "@blueprintjs/core";
+import { useState, useContext, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Navbar } from "@blueprintjs/core";
+import "normalize.css/normalize.css";
 import "@blueprintjs/core/lib/css/blueprint.css";
 
-import { useState, useContext } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { listInstitutions } from './services/api'; 
 
 import {
   InstitutionsContext,
@@ -12,44 +14,44 @@ import {
 import Institutions from "./pages/Institutions";
 import Institution from "./pages/Institution";
 
-import "./App.css";
-
 function App() {
   const [state, setState] = useState({ items: [], loaded: false });
 
   return (
     <InstitutionsProvider value={[state, setState]}>
-      <Loader />
       <Layout />
     </InstitutionsProvider>
   );
 }
 
-function Loader() {
-  const [state, setState] = useContext(InstitutionsContext);
-  const handleLoad = () => {
-    setState({
-      ...state,
-      items: [
-        { name: "banco 1", id: 1 },
-        { name: "banco 2", id: 2 },
-        { name: "banco 3", id: 3 },
-      ],
-      loaded: true,
-    });
-  };
-
-  return <Button icon="refresh" onClick={handleLoad}>Load!</Button>;
-}
 
 function Layout() {
+
+  const [state, setState] = useContext(InstitutionsContext);
+  
+  useEffect(() => {
+    (async () => {
+      const items = await listInstitutions();
+      setState({
+        ...state,
+        items,
+        loaded: true,
+      });
+    })();
+  }, []);
+
   return (
     <section>
-      <Navbar>Open Banking Brasil</Navbar>
+      <Navbar>
+        <h1>Open Banking Brasil</h1>
+      </Navbar>
       <Router>
         <Switch>
           <Route path="/institutions/:id">
             <Institution></Institution>
+          </Route>
+          <Route path="/institutions">
+            <Institutions></Institutions>
           </Route>
           <Route path="/">
             <Institutions></Institutions>
