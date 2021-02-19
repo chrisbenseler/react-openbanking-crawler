@@ -25,7 +25,7 @@ function App() {
 }
 
 
-function Layout() {
+function Layout({ match }) {
 
   const [state, setState] = useContext(InstitutionsContext);
   
@@ -40,6 +40,7 @@ function Layout() {
     })();
   }, []);
 
+
   return (
     <section>
       <Navbar>
@@ -47,13 +48,13 @@ function Layout() {
       </Navbar>
       <Router>
         <Switch>
-          <Route path="/institutions/:id">
+          <Route path="*/institutions/:id">
             <Institution></Institution>
           </Route>
-          <Route path="/institutions">
+          <Route path="*/institutions">
             <Institutions></Institutions>
           </Route>
-          <Route path="/">
+          <Route path="*/">
             <Institutions></Institutions>
           </Route>
         </Switch>
