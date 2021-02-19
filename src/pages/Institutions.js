@@ -11,7 +11,7 @@ function Institutions() {
       <ul>
         {state.items.map((item) => (
           <li key={"item_" + item.id}>
-            <Link to={"/institutions/" + item.id}>{item.name}</Link>
+            <Link to={"institutions/" + item.id}>{item.name}</Link>
           </li>
         ))}
       </ul>
