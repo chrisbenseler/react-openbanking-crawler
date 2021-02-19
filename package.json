@@ -17,6 +17,7 @@
   "scripts": {
     "start": "react-app-env start",
     "build": "react-app-env build",
+    "build:prod": "react-app-env --env-file=production.env build",
     "test": "react-app-env test",
     "eject": "react-scripts eject"
   },
