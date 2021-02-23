@@ -13,6 +13,7 @@ import {
 
 import Institutions from "./pages/Institutions";
 import Institution from "./pages/Institution";
+import PersonalLoans from './pages/PersonalLoans'
 
 function App() {
   const [state, setState] = useState({ items: [], loaded: false });
@@ -48,6 +49,9 @@ function Layout({ match }) {
       </Navbar>
       <Router>
         <Switch>
+        <Route path="*/institutions/:id/personal-loans">
+            <PersonalLoans></PersonalLoans>
+          </Route>
           <Route path="*/institutions/:id">
             <Institution></Institution>
           </Route>

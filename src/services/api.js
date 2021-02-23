@@ -6,4 +6,10 @@ const listInstitutions = async () => {
     return await resp.json();
 }
 
-export { listInstitutions };
+const listPersonalLoansFromInstitution = async (id) => {
+    const resp = await fetch(`${domain}/institutions/${id}/personal-loans`);
+    return await resp.json();
+}
+
+
+export { listInstitutions, listPersonalLoansFromInstitution };
