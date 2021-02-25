@@ -15,9 +15,7 @@ function Institution() {
   }, [state, id]);
 
   const history = useHistory();
-  const linkTo = (segment) => {
-    history.push(history.location.pathname + '/' + segment)
-  }
+  const linkTo = (segment) => history.push(`${history.location.pathname}/${segment}`)
 
   return (
     <section>
