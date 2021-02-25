@@ -19,7 +19,7 @@ function PersonalLoans() {
       return;
     }
     (async () => {
-      const result = await listPersonalLoansFromInstitution(id);
+      const result = await listPersonalLoansFromInstitution(id, nextPage);
       setPersonalLoans([...personalLoans, ...result.personalLoans]);
       setPager(result.pagination);
     })();

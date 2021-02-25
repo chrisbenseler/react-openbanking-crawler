@@ -6,8 +6,8 @@ const listInstitutions = async () => {
     return await resp.json();
 }
 
-const listPersonalLoansFromInstitution = async (id) => {
-    const resp = await fetch(`${domain}/institutions/${id}/personal-loans`);
+const listPersonalLoansFromInstitution = async (id, page) => {
+    const resp = await fetch(`${domain}/institutions/${id}/personal-loans?page=${page}`);
     return await resp.json();
 }
 
