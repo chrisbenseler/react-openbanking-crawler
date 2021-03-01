@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
+import ServicesFees from "../components/ServicesFees";
+
 import { listPersonalLoansFromInstitution } from "../services/api";
 
 function PersonalLoans() {
@@ -32,15 +35,20 @@ function PersonalLoans() {
         <thead>
           <tr>
             <th>Tipo</th>
-            <th>Termos e Condições</th>
+            <th>Taxas</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           {personalLoans.map((p, index) => (
             <tr key={p._id + "_" + index}>
               <td>{p.type}</td>
-              <td>{p.termsConditions}</td>
-              <td></td>
+              <td>
+                <ServicesFees services={p.fees.services} />
+              </td>
+              <td>
+                
+              </td>
             </tr>
           ))}
         </tbody>
