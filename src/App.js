@@ -1,19 +1,17 @@
 import { useState, useContext, useEffect } from "react";
 
-import { Navbar } from "@blueprintjs/core";
+import AppBar from "@material-ui/core/AppBar";
 import "normalize.css/normalize.css";
-import "@blueprintjs/core/lib/css/blueprint.css";
+import 'fontsource-roboto';
 
-import { listInstitutions } from './services/api'; 
+import { listInstitutions } from "./services/api";
 
-import Router from './Router';
+import Router from "./Router";
 
 import {
   InstitutionsContext,
   InstitutionsProvider,
 } from "./InstitutionsContext";
-
-
 
 function App() {
   const [state, setState] = useState({ items: [], loaded: false });
@@ -26,9 +24,8 @@ function App() {
 }
 
 function Layout() {
-
   const [state, setState] = useContext(InstitutionsContext);
-  
+
   useEffect(() => {
     (async () => {
       const items = await listInstitutions();
@@ -40,12 +37,11 @@ function Layout() {
     })();
   }, []);
 
-
   return (
     <section>
-      <Navbar>
+      <AppBar position="static">
         <h1>Open Banking Brasil</h1>
-      </Navbar>
+      </AppBar>
       <Router />
     </section>
   );

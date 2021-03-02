@@ -31,7 +31,7 @@ function PersonalLoans() {
   return (
     <section>
       <h2>Empréstimo - Pessoa Física</h2>
-      <table className={"bp3-html-table"}>
+      <table>
         <thead>
           <tr>
             <th>Tipo</th>
