@@ -1,5 +1,10 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+
 import { InstitutionsContext } from "../InstitutionsContext";
 
 function Institutions() {
@@ -8,13 +13,13 @@ function Institutions() {
   return (
     <section>
       <h2>Bancos</h2>
-      <ul>
+      <List>
         {state.items.map((item) => (
-          <li key={"item_" + item.id}>
-            <Link to={"institutions/" + item.id}>{item.name}</Link>
-          </li>
+          <ListItem button key={"item_" + item.id} component={Link} to={"institutions/" + item.id}>
+            <ListItemText >{item.name}</ListItemText>
+          </ListItem>
         ))}
-      </ul>
+      </List>
     </section>
   );
 }
