@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
+import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
 import ServicesFees from "../components/ServicesFees";
+import Subtitle from "../components/Subtitle";
 
 import { listPersonalLoansFromInstitution } from "../services/api";
 
@@ -28,31 +32,28 @@ function PersonalLoans() {
     })();
   }, [id, nextPage]);
 
+  
+
   return (
     <section>
       <h2>Empréstimo - Pessoa Física</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Tipo</th>
-            <th>Taxas</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {personalLoans.map((p, index) => (
-            <tr key={p._id + "_" + index}>
-              <td>{p.type}</td>
-              <td>
+      <Subtitle id={id} />
+      
+      <Grid container spacing={3}>
+        {personalLoans.map((p, index) => (
+          <Grid item xs={6} key={p._id + "_" + index}>
+            <Card>
+              <CardContent>
+                <Typography variant="subtitle2" component="h2">
+                  {p.type}
+                </Typography>
                 <ServicesFees services={p.fees.services} />
-              </td>
-              <td>
-                
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+
       <footer>
         Página {pager.current}/{pager.total}
       </footer>
