@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-
+import { BrowserRouter as Router } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -11,7 +11,7 @@ import "fontsource-roboto";
 
 import { listInstitutions } from "./services/api";
 
-import Router from "./Router";
+import AppRouter from "./AppRouter";
 
 import {
   InstitutionsContext,
@@ -19,7 +19,11 @@ import {
 } from "./InstitutionsContext";
 
 function App() {
-  const [state, setState] = useState({ items: [], loaded: false });
+  const [state, setState] = useState({
+    items: [],
+    loaded: false,
+    selectedId: null,
+  });
 
   const theme = createMuiTheme();
   theme.typography.h1 = {
@@ -58,9 +62,11 @@ function Layout() {
         </Toolbar>
       </AppBar>
 
-      <Container maxWidth="md">
-        <Router />
-      </Container>
+      <Router>
+        <Container maxWidth="md">
+          <AppRouter />
+        </Container>
+      </Router>
     </section>
   );
 }

@@ -4,15 +4,10 @@ import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 
 import { InstitutionsContext } from "../InstitutionsContext";
+import Subtitle from "../components/Subtitle";
 
 function Institution() {
   let { id } = useParams();
-  const [state] = useContext(InstitutionsContext);
-  const [current, setCurrent] = useState(null);
-
-  useEffect(() => {
-    setCurrent(state.items.find((item) => item.id === id));
-  }, [state, id]);
 
   const history = useHistory();
   const linkTo = (segment) =>
@@ -20,28 +15,24 @@ function Institution() {
 
   return (
     <section>
-      {current ? (
-        <div>
-          <h2>Detalhe de {current.name}</h2>
+      <div>
+        <Subtitle component={"h1"} id={id} />
 
-          <section>
-            <ButtonGroup
-              variant="contained"
-              color="primary"
-              aria-label="Empréstimos"
-            >
-              <Button onClick={() => linkTo("personal-loans")}>
-                Empréstimo PF
-              </Button>
-              <Button onClick={() => linkTo("business-loans")}>
-                Empréstimo PJ
-              </Button>
-            </ButtonGroup>
-          </section>
-        </div>
-      ) : (
-        <div></div>
-      )}
+        <section>
+          <ButtonGroup
+            variant="contained"
+            color="primary"
+            aria-label="Empréstimos"
+          >
+            <Button onClick={() => linkTo("personal-loans")}>
+              Empréstimo PF
+            </Button>
+            <Button onClick={() => linkTo("business-loans")}>
+              Empréstimo PJ
+            </Button>
+          </ButtonGroup>
+        </section>
+      </div>
     </section>
   );
 }
