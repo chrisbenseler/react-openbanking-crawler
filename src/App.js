@@ -1,22 +1,20 @@
-import { useState, useContext, useEffect } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import "normalize.css/normalize.css";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
 import "fontsource-roboto";
-
-import { listInstitutions } from "./services/api";
-
+import "normalize.css/normalize.css";
+import { useContext, useEffect, useState } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import AppRouter from "./AppRouter";
-
 import {
   InstitutionsContext,
-  InstitutionsProvider,
+  InstitutionsProvider
 } from "./InstitutionsContext";
+import { listInstitutions } from "./services/api";
+
 
 function App() {
   const [state, setState] = useState({

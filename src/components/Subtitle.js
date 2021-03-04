@@ -1,6 +1,6 @@
+import Typography from "@material-ui/core/Typography";
 import { useContext, useEffect, useState } from "react";
 import { InstitutionsContext } from "../InstitutionsContext";
-import Typography from "@material-ui/core/Typography";
 
 function Subtitle({ id, component = "h3" }) {
   const [state] = useContext(InstitutionsContext);
