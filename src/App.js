@@ -1,20 +1,17 @@
-import AppBar from "@material-ui/core/AppBar";
 import Container from "@material-ui/core/Container";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 import "fontsource-roboto";
 import "normalize.css/normalize.css";
 import { useContext, useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import AppRouter from "./AppRouter";
+import CustomAppBar from "./components/CustomAppBar";
 import {
   InstitutionsContext,
   InstitutionsProvider
 } from "./InstitutionsContext";
 import { listInstitutions } from "./services/api";
-
 
 function App() {
   const [state, setState] = useState({
@@ -53,19 +50,12 @@ function Layout() {
   }, []);
 
   return (
-    <section>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h1">Open Banking Brasil</Typography>
-        </Toolbar>
-      </AppBar>
-
-      <Router>
-        <Container maxWidth="md">
-          <AppRouter />
-        </Container>
-      </Router>
-    </section>
+    <Router>
+      <CustomAppBar />
+      <Container maxWidth="md">
+        <AppRouter />
+      </Container>
+    </Router>
   );
 }
 
