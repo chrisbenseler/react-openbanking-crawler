@@ -41,7 +41,7 @@ function PersonalLoans() {
       
       <Grid container spacing={3}>
         {personalLoans.map((p, index) => (
-          <Grid item xs={6} key={p._id + "_" + index}>
+          <Grid item xs={12} md={6} key={p._id + "_" + index}>
             <Card>
               <CardContent>
                 <Typography variant="subtitle2" component="h2">
