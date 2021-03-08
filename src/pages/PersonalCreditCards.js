@@ -31,6 +31,7 @@ function PersonalCreditCards() {
         ...result.personalCreditCards,
       ]);
       setPager(result.pagination);
+      console.log(result)
     })();
   }, [id, nextPage]);
 
@@ -56,6 +57,11 @@ function PersonalCreditCards() {
 
       <footer>
         Página {pager.current}/{pager.total}
+        { pager.total > 1 && pager.current != pager.total ? <div>
+          <button onClick={() => {
+            setNextPage(pager.current + 1);
+          }}>mais</button>
+        </div> : null }
       </footer>
     </section>
   );
