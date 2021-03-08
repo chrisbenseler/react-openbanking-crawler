@@ -1,12 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ListPaginator from "../components/ListPaginator";
-import ServicesFees from "../components/ServicesFees";
-import Subtitle from "../components/Subtitle";
+import { ListPaginator, ServicesFees, Subtitle } from "../components";
 import { listPersonalLoansFromInstitution } from "../services/api";
 
 function PersonalLoans() {

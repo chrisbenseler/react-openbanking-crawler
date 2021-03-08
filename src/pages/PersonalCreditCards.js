@@ -1,16 +1,15 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ListPaginator from "../components/ListPaginator";
-import ServicesFees from "../components/ServicesFees";
-import Subtitle from "../components/Subtitle";
+import { ListPaginator, ServicesFees, Subtitle } from "../components";
 import { listPersonalCreditCardsFromInstitution } from "../services/api";
 
 function PersonalCreditCards() {
-  const [PersonalCreditCard, setPersonalCreditCard] = useState([]);
+  const [personalCreditCards, setPersonalCreditCard] = useState([]);
   const [nextPage, setNextPage] = useState(null);
   const [pager, setPager] = useState({});
   const { id } = useParams();
@@ -28,11 +27,10 @@ function PersonalCreditCards() {
     (async () => {
       const result = await listPersonalCreditCardsFromInstitution(id, nextPage);
       setPersonalCreditCard([
-        ...PersonalCreditCard,
+        ...personalCreditCards,
         ...result.personalCreditCards,
       ]);
       setPager(result.pagination);
-      console.log(result);
     })();
   }, [id, nextPage]);
 
@@ -42,7 +40,7 @@ function PersonalCreditCards() {
       <Subtitle id={id} />
 
       <Grid container spacing={3}>
-        {PersonalCreditCard.map((p, index) => (
+        {personalCreditCards.map((p, index) => (
           <Grid item xs={12} md={6} key={p._id + "_" + index}>
             <Card>
               <CardContent>
