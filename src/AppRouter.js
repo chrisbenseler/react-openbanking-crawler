@@ -1,14 +1,12 @@
+import { Route, Switch } from "react-router-dom";
 import {
-  Route, Switch
-} from "react-router-dom";
-import Institution from "./pages/Institution";
-import Institutions from "./pages/Institutions";
-import PersonalCreditCards from "./pages/PersonalCreditCards";
-import PersonalLoans from "./pages/PersonalLoans";
+  Institution,
+  Institutions,
+  PersonalCreditCards,
+  PersonalLoans
+} from "./pages/";
 
 function AppRouter() {
-
-  
   return (
     <Switch>
       <Route path="*/institutions/:id/personal-loans">

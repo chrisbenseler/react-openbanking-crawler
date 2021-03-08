@@ -8,7 +8,6 @@ import ServicesFees from "../components/ServicesFees";
 import Subtitle from "../components/Subtitle";
 import { listPersonalCreditCardsFromInstitution } from "../services/api";
 
-
 function PersonalCreditCards() {
   const [PersonalCreditCard, setPersonalCreditCard] = useState([]);
   const [nextPage, setNextPage] = useState(null);
@@ -27,18 +26,19 @@ function PersonalCreditCards() {
     }
     (async () => {
       const result = await listPersonalCreditCardsFromInstitution(id, nextPage);
-      setPersonalCreditCard([...PersonalCreditCard, ...result.personalCreditCards]);
+      setPersonalCreditCard([
+        ...PersonalCreditCard,
+        ...result.personalCreditCards,
+      ]);
       setPager(result.pagination);
     })();
   }, [id, nextPage]);
-
-  
 
   return (
     <section>
       <h2>Cartão de Crédito - Pessoa Física</h2>
       <Subtitle id={id} />
-      
+
       <Grid container spacing={3}>
         {PersonalCreditCard.map((p, index) => (
           <Grid item xs={12} md={6} key={p._id + "_" + index}>
