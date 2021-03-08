@@ -18,6 +18,12 @@ function Institution() {
         <Button onClick={() => linkTo("personal-loans")}>Empréstimo PF</Button>
         <Button onClick={() => linkTo("business-loans")}>Empréstimo PJ</Button>
       </ButtonGroup>
+
+      <ButtonGroup variant="contained" color="primary" aria-label="Empréstimos">
+        <Button onClick={() => linkTo("personal-credit-cards")}>Cartão de Crédito PF</Button>
+        <Button onClick={() => linkTo("business-loans")}>Cartão de Crédito PJ</Button>
+      </ButtonGroup>
+
     </section>
   );
 }

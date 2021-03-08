@@ -6,11 +6,10 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ServicesFees from "../components/ServicesFees";
 import Subtitle from "../components/Subtitle";
-import { listPersonalLoansFromInstitution } from "../services/api";
+import { listPersonalCreditCardsFromInstitution } from "../services/api";
 
-
-function PersonalLoans() {
-  const [personalLoans, setPersonalLoans] = useState([]);
+function PersonalCreditCards() {
+  const [PersonalCreditCard, setPersonalCreditCard] = useState([]);
   const [nextPage, setNextPage] = useState(null);
   const [pager, setPager] = useState({});
   const { id } = useParams();
@@ -26,21 +25,22 @@ function PersonalLoans() {
       return;
     }
     (async () => {
-      const result = await listPersonalLoansFromInstitution(id, nextPage);
-      setPersonalLoans([...personalLoans, ...result.personalLoans]);
+      const result = await listPersonalCreditCardsFromInstitution(id, nextPage);
+      setPersonalCreditCard([
+        ...PersonalCreditCard,
+        ...result.personalCreditCards,
+      ]);
       setPager(result.pagination);
     })();
   }, [id, nextPage]);
 
-  
-
   return (
     <section>
-      <h2>Empréstimo - Pessoa Física</h2>
+      <h2>Cartão de Crédito - Pessoa Física</h2>
       <Subtitle id={id} />
-      
+
       <Grid container spacing={3}>
-        {personalLoans.map((p, index) => (
+        {PersonalCreditCard.map((p, index) => (
           <Grid item xs={12} md={6} key={p._id + "_" + index}>
             <Card>
               <CardContent>
@@ -61,4 +61,4 @@ function PersonalLoans() {
   );
 }
 
-export default PersonalLoans;
+export default PersonalCreditCards;
