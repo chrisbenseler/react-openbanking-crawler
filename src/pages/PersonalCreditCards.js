@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import ListPaginator from "../components/ListPaginator";
 import ServicesFees from "../components/ServicesFees";
 import Subtitle from "../components/Subtitle";
 import { listPersonalCreditCardsFromInstitution } from "../services/api";
@@ -31,7 +32,7 @@ function PersonalCreditCards() {
         ...result.personalCreditCards,
       ]);
       setPager(result.pagination);
-      console.log(result)
+      console.log(result);
     })();
   }, [id, nextPage]);
 
@@ -55,14 +56,12 @@ function PersonalCreditCards() {
         ))}
       </Grid>
 
-      <footer>
-        Página {pager.current}/{pager.total}
-        { pager.total > 1 && pager.current != pager.total ? <div>
-          <button onClick={() => {
-            setNextPage(pager.current + 1);
-          }}>mais</button>
-        </div> : null }
-      </footer>
+      <ListPaginator
+        pager={pager}
+        handleClick={() => {
+          setNextPage(pager.current + 1);
+        }}
+      />
     </section>
   );
 }

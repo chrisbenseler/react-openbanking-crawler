@@ -4,10 +4,10 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import ListPaginator from "../components/ListPaginator";
 import ServicesFees from "../components/ServicesFees";
 import Subtitle from "../components/Subtitle";
 import { listPersonalLoansFromInstitution } from "../services/api";
-
 
 function PersonalLoans() {
   const [personalLoans, setPersonalLoans] = useState([]);
@@ -32,13 +32,11 @@ function PersonalLoans() {
     })();
   }, [id, nextPage]);
 
-  
-
   return (
     <section>
       <h2>Empréstimo - Pessoa Física</h2>
       <Subtitle id={id} />
-      
+
       <Grid container spacing={3}>
         {personalLoans.map((p, index) => (
           <Grid item xs={12} md={6} key={p._id + "_" + index}>
@@ -54,9 +52,12 @@ function PersonalLoans() {
         ))}
       </Grid>
 
-      <footer>
-        Página {pager.current}/{pager.total}
-      </footer>
+      <ListPaginator
+        pager={pager}
+        handleClick={() => {
+          setNextPage(pager.current + 1);
+        }}
+      />
     </section>
   );
 }
