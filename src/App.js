@@ -43,7 +43,7 @@ function Layout() {
       const items = await listInstitutions();
       setState({
         ...state,
-        items,
+        items: items.sort( (a, b) => a.name > b.name ? 1 : -1),
         loaded: true,
       });
     })();
