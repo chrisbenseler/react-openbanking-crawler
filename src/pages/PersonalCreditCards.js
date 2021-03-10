@@ -36,8 +36,12 @@ function PersonalCreditCards() {
 
   return (
     <section>
-      <h2>Cartão de Crédito - Pessoa Física</h2>
       <Subtitle id={id} />
+      <Box mb={2}>
+        <Typography component="h4" variant="h4">
+          Cartão de Crédito - Pessoa Física
+        </Typography>
+      </Box>
 
       <Grid container spacing={3}>
         {personalCreditCards.map((p, index) => (

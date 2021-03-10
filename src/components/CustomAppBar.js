@@ -1,4 +1,5 @@
 import AppBar from "@material-ui/core/AppBar";
+import Container from "@material-ui/core/Container";
 import IconButton from "@material-ui/core/IconButton";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
@@ -11,19 +12,21 @@ function CustomAppBar() {
 
   return (
     <AppBar position="static">
+      <Container maxWidth="md">
       <Toolbar>
-        {location.key ? (
-          <IconButton
-            onClick={() => history.goBack()}
-            edge="start"
-            color="inherit"
-            aria-label="Voltar"
-          >
-            <ArrowBack />
-          </IconButton>
-        ) : null}
-        <Typography variant="h1">Open Banking Brasil</Typography>
+          {location.key ? (
+            <IconButton
+              onClick={() => history.goBack()}
+              edge="start"
+              color="inherit"
+              aria-label="Voltar"
+            >
+              <ArrowBack />
+            </IconButton>
+          ) : null}
+          <Typography variant="h1">Open Banking Brasil</Typography>
       </Toolbar>
+      </Container>
     </AppBar>
   );
 }

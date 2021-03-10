@@ -21,10 +21,7 @@ function App() {
     selectedId: null,
   });
 
-  const theme = createMuiTheme();
-  theme.typography.h1 = {
-    fontSize: "2.5rem",
-  };
+  const theme = buildTheme();
 
   return (
     <InstitutionsProvider value={[state, setState]}>
@@ -44,7 +41,7 @@ function Layout() {
       const items = await listInstitutions();
       setState({
         ...state,
-        items: items.sort( (a, b) => a.name > b.name ? 1 : -1),
+        items: items.sort((a, b) => (a.name > b.name ? 1 : -1)),
         loaded: true,
       });
     })();
@@ -59,5 +56,17 @@ function Layout() {
     </Router>
   );
 }
+
+const buildTheme = () =>
+  createMuiTheme({
+    typography: {
+      h1: "2.5rem",
+    },
+    palette: {
+      primary: {
+        main: "#1a237e",
+      },
+    },
+  });
 
 export default App;
