@@ -18,6 +18,7 @@ function Institutions() {
             key={"item_" + item.id}
             component={Link}
             to={"institutions/" + item.id}
+            divider
           >
             <ListItemText>{item.name}</ListItemText>
           </ListItem>
