@@ -1,3 +1,4 @@
+import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { useContext, useEffect, useState } from "react";
 import { InstitutionsContext } from "../InstitutionsContext";
@@ -9,9 +10,9 @@ function Subtitle({ id, component = "h3" }) {
     setCurrent(state.items.find((item) => item.id === id));
   }, [state, id]);
 
-  return <div>
+  return <Box m={2}>
       <Typography variant={component} component={component}>{ current ? current.name : "" }</Typography>
-  </div>;
+  </Box>;
 }
 
 export default Subtitle;
