@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import Box from "@material-ui/core/Box";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
@@ -33,8 +34,10 @@ function PersonalLoans() {
 
   return (
     <section>
-      <h2>Empréstimo - Pessoa Física</h2>
       <Subtitle id={id} />
+      <Box mb={2}>
+        <Typography component="h4" variant="h4">Empréstimo - Pessoa Física</Typography>
+      </Box>
 
       <Grid container spacing={3}>
         {personalLoans.map((p, index) => (
