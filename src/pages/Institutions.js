@@ -13,8 +13,11 @@ function Institutions() {
   return (
     <section>
       <Box my={2}>
-        <Typography component="h2" variant="h3">Bancos</Typography>
+        <Typography component="h2" variant="h3">
+          Bancos
+        </Typography>
       </Box>
+      {state.loaded}
       <List>
         {state.items.map((item) => (
           <ListItem

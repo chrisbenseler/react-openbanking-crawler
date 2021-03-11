@@ -4,6 +4,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import ArrowBack from "@material-ui/icons/ArrowBack";
+import Home from "@material-ui/icons/Home";
 import { useHistory, useLocation } from "react-router-dom";
 
 function CustomAppBar() {
@@ -13,7 +14,7 @@ function CustomAppBar() {
   return (
     <AppBar position="static">
       <Container maxWidth="md">
-      <Toolbar>
+        <Toolbar>
           {location.key ? (
             <IconButton
               onClick={() => history.goBack()}
@@ -23,9 +24,15 @@ function CustomAppBar() {
             >
               <ArrowBack />
             </IconButton>
-          ) : <IconButton />}
-          <Typography variant="h4" component="h1">Open Banking Brasil</Typography>
-      </Toolbar>
+          ) : (
+            <IconButton edge="start" color="inherit">
+              <Home />
+            </IconButton>
+          )}
+          <Typography variant="h4" component="h1">
+            Open Banking Brasil
+          </Typography>
+        </Toolbar>
       </Container>
     </AppBar>
   );
