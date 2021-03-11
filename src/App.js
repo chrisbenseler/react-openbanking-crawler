@@ -59,9 +59,6 @@ function Layout() {
 
 const buildTheme = () =>
   createMuiTheme({
-    typography: {
-      h1: "2.5rem",
-    },
     palette: {
       primary: {
         main: "#1a237e",

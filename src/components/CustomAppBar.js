@@ -23,8 +23,8 @@ function CustomAppBar() {
             >
               <ArrowBack />
             </IconButton>
-          ) : null}
-          <Typography variant="h1">Open Banking Brasil</Typography>
+          ) : <IconButton />}
+          <Typography variant="h4" component="h1">Open Banking Brasil</Typography>
       </Toolbar>
       </Container>
     </AppBar>

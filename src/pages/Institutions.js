@@ -1,6 +1,8 @@
+import Box from "@material-ui/core/Box";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import Typography from "@material-ui/core/Typography";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { InstitutionsContext } from "../InstitutionsContext";
@@ -10,7 +12,9 @@ function Institutions() {
 
   return (
     <section>
-      <h2>Bancos</h2>
+      <Box my={2}>
+        <Typography component="h2" variant="h3">Bancos</Typography>
+      </Box>
       <List>
         {state.items.map((item) => (
           <ListItem
