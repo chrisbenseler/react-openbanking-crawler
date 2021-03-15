@@ -49,8 +49,8 @@ function PersonalCreditCards() {
           <Grid item xs={12} md={6} key={p._id + "_" + index}>
             <Card>
               <CardContent>
-                <Typography variant="subtitle2" component="h2">
-                  {p.type}
+                <Typography variant="h5" component="h5">
+                  {p.name}
                 </Typography>
                 <ServicesFees services={p.fees.services} />
               </CardContent>
