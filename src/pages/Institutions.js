@@ -1,4 +1,5 @@
 import Box from "@material-ui/core/Box";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -17,7 +18,7 @@ function Institutions() {
           Bancos
         </Typography>
       </Box>
-      {state.loaded}
+      {!state.loaded ? <CircularProgress color="secondary" /> : null}
       <List>
         {state.items.map((item) => (
           <ListItem
