@@ -34,9 +34,9 @@ function PersonalLoans() {
 
   return (
     <section>
-      <Subtitle id={id} />
+      <Subtitle id={id} component="h2" variant="h4" />
       <Box mb={2}>
-        <Typography component="h4" variant="h4">Empréstimo - Pessoa Física</Typography>
+        <Typography component="h3" variant="h5">Empréstimo - Pessoa Física</Typography>
       </Box>
 
       <Grid container spacing={3}>
@@ -44,7 +44,7 @@ function PersonalLoans() {
           <Grid item xs={12} md={6} key={p._id + "_" + index}>
             <Card>
               <CardContent>
-                <Typography variant="subtitle2" component="h2">
+                <Typography variant="h7" component="h6">
                   {p.type}
                 </Typography>
                 <ServicesFees services={p.fees.services} />
