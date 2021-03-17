@@ -37,9 +37,9 @@ function PersonalCreditCards() {
 
   return (
     <section>
-      <Subtitle id={id} />
+      <Subtitle id={id} component="h2" variant="h4" />
       <Box mb={2}>
-        <Typography component="h4" variant="h4">
+        <Typography component="h3" variant="h5">
           Cartão de Crédito - Pessoa Física
         </Typography>
       </Box>
@@ -49,7 +49,7 @@ function PersonalCreditCards() {
           <Grid item xs={12} md={6} key={p._id + "_" + index}>
             <Card>
               <CardContent>
-                <Typography variant="h5" component="h5">
+                <Typography variant="h7" component="h6">
                   {p.name}
                 </Typography>
                 <ServicesFees services={p.fees.services} />
