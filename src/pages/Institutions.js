@@ -13,8 +13,8 @@ function Institutions() {
 
   return (
     <section>
-      <Box my={2}>
-        <Typography component="h2" variant="h3">
+      <Box mt={2}>
+        <Typography component="h2" variant="h4">
           Bancos
         </Typography>
       </Box>
